@@ -39,11 +39,13 @@ if(NOT DEFINED CMAKE_LIBRARY_ARCHITECTURE)
   set(CMAKE_LIBRARY_ARCHITECTURE x86_64-linux-gnu)
 endif()
 
+# LIST(APPEND CMAKE_LIBRARY_PATH /usr/local/lib/suitesparse)
+LIST(APPEND CMAKE_INCLUDE_PATH ${doca_ROOT}/include)
+
 # Find the include path
 set(CMAKE_FIND_DEBUG_MODE TRUE)
 find_path(
   doca_INCLUDE_DIR doca_gpunetio.h
-  PATH_SUFFIXES include
 )
 mark_as_advanced(doca_INCLUDE_DIR)
 set(CMAKE_FIND_DEBUG_MODE FALSE)
