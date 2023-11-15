@@ -29,7 +29,7 @@ if(DEFINED doca_ROOT)
 endif()
 
 # Now find DPDK
-find_package(libdpdk QUIET)
+find_package(libdpdk)
 list(APPEND doca_REQUIRED_VARS libdpdk_FOUND)
 
 # CMAKE_LIBRARY_ARCHITECTURE needs to be set for this to work correctly. Save the value so we can restore
@@ -40,10 +40,13 @@ if(NOT DEFINED CMAKE_LIBRARY_ARCHITECTURE)
 endif()
 
 # Find the include path
+set(CMAKE_FIND_DEBUG_MODE TRUE)
 find_path(
   doca_INCLUDE_DIR doca_gpunetio.h
+  PATH_SUFFIXES include
 )
 mark_as_advanced(doca_INCLUDE_DIR)
+set(CMAKE_FIND_DEBUG_MODE FALSE)
 
 # Find all of the libraries
 list(APPEND doca_REQUIRED_LIBS

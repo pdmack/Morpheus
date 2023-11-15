@@ -46,6 +46,7 @@ export MORPHEUS_ROOT=${MORPHEUS_ROOT:-$(git rev-parse --show-toplevel)}
 # Export script_env variables that must be set for conda build
 export CMAKE_CUDA_ARCHITECTURES=${CMAKE_CUDA_ARCHITECTURES:-"RAPIDS"}
 export MORPHEUS_PYTHON_BUILD_STUBS=${MORPHEUS_PYTHON_BUILD_STUBS:-"ON"}
+export MORPHEUS_SUPPORT_DOCA=${MORPHEUS_SUPPORT_DOCA:-"OFF"}
 export MORPHEUS_CACHE_DIR=${MORPHEUS_CACHE_DIR:-"${MORPHEUS_ROOT}/.cache"}
 export PARALLEL_LEVEL=${PARALLEL_LEVEL:-$(nproc)}
 
