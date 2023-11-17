@@ -77,12 +77,7 @@ if (DEFINED doca_INCLUDE_DIR)
 
   message(VERBOSE "doca_INCLUDE_DIR: ${doca_INCLUDE_DIR}")
 
-  find_file(doca_VERSION_FILE
-    NAMES doca_version.h
-    PATHS ${doca_INCLUDE_DIR}
-    NO_DEFAULT_PATH
-  )
-  mark_as_advanced(doca_VERSION_FILE)
+  set(doca_VERSION_FILE ${doca_INCLUDE_DIR}/doca_version.h)
 
   if (DEFINED doca_VERSION_FILE)
     message(VERBOSE "doca_VERSION_FILE: ${doca_VERSION_FILE}")
