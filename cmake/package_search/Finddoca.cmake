@@ -43,12 +43,7 @@ endif()
 LIST(APPEND CMAKE_INCLUDE_PATH ${doca_ROOT}/include)
 
 # Find the include path
-set(CMAKE_FIND_DEBUG_MODE TRUE)
-find_path(
-  doca_INCLUDE_DIR doca_gpunetio.h
-)
-mark_as_advanced(doca_INCLUDE_DIR)
-set(CMAKE_FIND_DEBUG_MODE FALSE)
+set(doca_INCLUDE_DIR ${doca_ROOT}/include)
 
 # Find all of the libraries
 list(APPEND doca_REQUIRED_LIBS
