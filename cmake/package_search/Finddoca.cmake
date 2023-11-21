@@ -53,15 +53,6 @@ list(APPEND doca_REQUIRED_LIBS
   doca_gpunetio_device
 )
 
-foreach(library_name IN LISTS doca_REQUIRED_LIBS)
-  find_library(
-    ${library_name}_LIBRARY
-    NAMES ${library_name}
-  )
-  mark_as_advanced(${library_name}_LIBRARY)
-  list(APPEND doca_REQUIRED_VARS ${library_name}_LIBRARY)
-endforeach()
-
 macro(parse_define_number define_name file_string output_variable)
   string(REGEX MATCH "#define ${define_name} ([^\n]+)\n" _ "${file_string}")
   set(${output_variable} "${CMAKE_MATCH_1}")
