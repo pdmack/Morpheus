@@ -89,6 +89,8 @@ endif()
 # Restore CMAKE_LIBRARY_ARCHITECTURE now that we are done
 set(CMAKE_LIBRARY_ARCHITECTURE ${_saved_CMAKE_LIBRARY_ARCHITECTURE})
 
+set(doca_FOUND TRUE)
+
 if(doca_FOUND)
 
   list(APPEND doca_child_targets)
