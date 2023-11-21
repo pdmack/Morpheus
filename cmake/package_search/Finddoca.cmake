@@ -29,7 +29,6 @@ if(DEFINED doca_ROOT)
 endif()
 
 # Now find DPDK
-find_package(libdpdk)
 list(APPEND doca_REQUIRED_VARS libdpdk_FOUND)
 
 # CMAKE_LIBRARY_ARCHITECTURE needs to be set for this to work correctly. Save the value so we can restore
@@ -89,14 +88,6 @@ endif()
 
 # Restore CMAKE_LIBRARY_ARCHITECTURE now that we are done
 set(CMAKE_LIBRARY_ARCHITECTURE ${_saved_CMAKE_LIBRARY_ARCHITECTURE})
-
-include(FindPackageHandleStandardArgs)
-find_package_handle_standard_args(doca
-  FOUND_VAR doca_FOUND
-  REQUIRED_VARS
-    ${doca_REQUIRED_VARS}
-  VERSION_VAR doca_VERSION
-)
 
 if(doca_FOUND)
 
