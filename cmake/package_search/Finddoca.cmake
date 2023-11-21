@@ -97,14 +97,7 @@ if(doca_FOUND)
 
   foreach(library_name IN LISTS doca_REQUIRED_LIBS)
     if(NOT TARGET doca::${library_name})
-      add_library(${library_name} UNKNOWN IMPORTED GLOBAL)
-      add_library(doca::${library_name} ALIAS ${library_name})
-      set_target_properties(${library_name} PROPERTIES
-        IMPORTED_LINK_INTERFACE_LANGUAGES "C"
-        IMPORTED_LOCATION "${${library_name}_LIBRARY}"
-        INTERFACE_INCLUDE_DIRECTORIES "${doca_INCLUDE_DIR}"
-        INTERFACE_LINK_LIBRARIES "libdpdk::libdpdk"
-      )
+      target_link_libraries(doca::${library_name} /opt/mellanox/doca/lib/x86_64-linux-gnu/libdoca_${library_name}.so)
 
       # Add to the list of dependent targets
       list(APPEND doca_child_targets doca::${library_name})
